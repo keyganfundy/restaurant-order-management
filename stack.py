@@ -3,10 +3,8 @@ class _StackNode:
         self.value = value
         self.next = None
 
-
 class OrderHistoryStack:
     """LIFO stack implemented with linked nodes."""
-
     def __init__(self):
         self._top = None
         self._size = 0
@@ -20,7 +18,6 @@ class OrderHistoryStack:
     def pop(self):
         if self.is_empty():
             raise IndexError("Cannot pop from an empty stack.")
-
         order = self._top.value
         self._top = self._top.next
         self._size -= 1

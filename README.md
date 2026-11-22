@@ -1,38 +1,34 @@
 # Restaurant Order Management System
 
-Final Project - Data Structures
+Python Data Structures Final Project
 
 ## Sprint 1
+- Customer, MenuItem, Order, Restaurant, and RestaurantOrderManager classes
+- Custom linked-node FIFO queue (`OrderQueue`)
+- Custom linked-node LIFO stack (`OrderHistoryStack`)
+- Programmer-written insertion sort by order ID
+- Unit tests for models and data structures
 
-Sprint 1 defines the core classes, implements two data structures, and creates unit tests.
+## Sprint 2
+- Tkinter graphical interface with Menu, Customers, Create Order, and Order Display tabs
+- Input validation for required text, numeric IDs, and nonnegative prices
+- Order creation, item selection/removal, order totals, FIFO processing, and order display
+- Validation and regression unit tests
 
-### Classes
+## Requirements
+Python 3.10 or newer is recommended. Tkinter is included with most standard Windows Python installations.
 
-- `Customer` - stores customer information.
-- `MenuItem` - stores menu item information.
-- `Order` - stores an order and calculates its total.
-- `Restaurant` - stores menu items, customers, and orders.
-- `RestaurantOrderManager` - coordinates order processing.
+## Run the application
+From this folder:
 
-### Data Structures
-
-- `OrderQueue` - FIFO queue implemented with linked nodes.
-- `OrderHistoryStack` - LIFO stack implemented with linked nodes.
-
-### Sorting
-
-`RestaurantOrderManager.sort_orders_by_id()` contains a programmer-written insertion sort.
-
-### Running the program
-
-```text
+```bash
 python main.py
 ```
 
-### Running unit tests
-
-```text
+## Run unit tests
+```bash
 python -m unittest discover -s tests -v
 ```
 
-The GUI will be added during Sprint 2.
+## Notes
+The GUI currently stores data in memory. Closing the application clears the session. Saving data between sessions can be considered as a future enhancement if required.

@@ -1,6 +1,5 @@
 from dataclasses import dataclass, field
 
-
 @dataclass
 class Customer:
     customer_id: int
@@ -15,7 +14,6 @@ class Customer:
 
     def __str__(self):
         return f"{self.customer_id}: {self.name}"
-
 
 @dataclass
 class MenuItem:
@@ -33,7 +31,6 @@ class MenuItem:
 
     def __str__(self):
         return f"{self.name} - ${self.price:.2f}"
-
 
 @dataclass
 class Order:
@@ -61,17 +58,12 @@ class Order:
         self.status = status
 
     def __str__(self):
-        return (
-            f"Order #{self.order_id} | {self.customer.name} | "
-            f"${self.total():.2f} | {self.status}"
-        )
-
+        return f"Order #{self.order_id} | {self.customer.name} | ${self.total():.2f} | {self.status}"
 
 class Restaurant:
     def __init__(self, name: str):
         if not name.strip():
             raise ValueError("Restaurant name cannot be blank.")
-
         self.name = name
         self.menu: list[MenuItem] = []
         self.customers: list[Customer] = []
@@ -93,13 +85,7 @@ class Restaurant:
         self.orders.append(order)
 
     def find_customer(self, customer_id: int):
-        for customer in self.customers:
-            if customer.customer_id == customer_id:
-                return customer
-        return None
+        return next((c for c in self.customers if c.customer_id == customer_id), None)
 
     def find_order(self, order_id: int):
-        for order in self.orders:
-            if order.order_id == order_id:
-                return order
-        return None
+        return next((o for o in self.orders if o.order_id == order_id), None)
